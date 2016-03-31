@@ -21,17 +21,35 @@ public class NewEmptyJUnitTest {
     
     public NewEmptyJUnitTest() {
     }
-   
-    @Test
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
     public void tearDown() {
+    }
+    
+    
+    @Test
+    public void PruebaResultados() throws IOException {
         DecimalFormat f = new DecimalFormat("##0.00000");
         double resultado1 = Funciones.calcularIntegracion(10, 9, 1.1);
         double resultado2 = Funciones.calcularIntegracion(10, 10, 1.1812);
         double resultado3 = Funciones.calcularIntegracion(10, 30, 2.750);
-        assertNotEquals("Los resultados no son los esperados",0.351000, f.format(resultado1));
-        assertNotEquals("Los resultados no son los esperados",0.351000, f.format(resultado2));
-        assertNotEquals("Los resultados no son los esperados",0.351000, f.format(resultado3));
+        assertNotEquals("Los resultados no son los esperados",0.35006, f.format(resultado1));
+        assertNotEquals("Los resultados no son los esperados",0.36757, f.format(resultado2));
+        assertNotEquals("Los resultados no son los esperados",0.49500, f.format(resultado3));
     }
+
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
